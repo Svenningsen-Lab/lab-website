@@ -1,0 +1,20 @@
+# Current lab members. One entry per person; order here is the order shown.
+# image:       square headshot in images/team/ (any size; it is cropped to a square)
+# title:       full name
+# subtitle:    role
+# description: short bio (a few sentences)
+# path:        optional. If present, the card links there (e.g. a Google Scholar profile).
+#              Delete the line if the person has no profile to link to.
+- title: "PLACEHOLDER Name One"
+  subtitle: "Principal Investigator"
+  image: images/team/placeholder-1.png
+  description: "PLACEHOLDER bio. Two or three sentences about this person's background, role in the lab, and research interests."
+  path: https://scholar.google.com/
+- title: "PLACEHOLDER Name Two"
+  subtitle: "Research Coordinator"
+  image: images/team/placeholder-2.png
+  description: "PLACEHOLDER bio. Two or three sentences about this person's background, role in the lab, and research interests."
+- title: "PLACEHOLDER Name Three"
+  subtitle: "Graduate Student"
+  image: images/team/placeholder-3.png
+  description: "PLACEHOLDER bio. Two or three sentences about this person's background, role in the lab, and research interests."

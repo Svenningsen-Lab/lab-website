@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+
+website:
+  title: "Svenningsen Imaging Lab"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: team.qmd
+        text: Team
+      - href: publications.qmd
+        text: Publications
+      - href: gallery.qmd
+        text: Gallery
+      - href: contact.qmd
+        text: Contact
+  page-footer:
+    center: "© Svenningsen Imaging Lab"
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: false
+    lightbox: true
+    lang: en-CA

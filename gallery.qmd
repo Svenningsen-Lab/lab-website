@@ -1,0 +1,19 @@
+---
+title: "Gallery"
+---
+
+Click any photo to enlarge it.
+
+::: {layout-ncol=3}
+![PLACEHOLDER: Lab photo 1](images/gallery/lab-photo-1.jpg){group="lab"}
+
+![PLACEHOLDER: Lab photo 2](images/gallery/lab-photo-2.jpg){group="lab"}
+
+![PLACEHOLDER: Lab photo 3](images/gallery/lab-photo-3.jpg){group="lab"}
+
+![PLACEHOLDER: Lab photo 4](images/gallery/lab-photo-4.jpg){group="lab"}
+
+![PLACEHOLDER: Lab photo 5](images/gallery/lab-photo-5.jpg){group="lab"}
+
+![PLACEHOLDER: Lab photo 6](images/gallery/lab-photo-6.jpg){group="lab"}
+:::

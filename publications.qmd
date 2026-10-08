@@ -1,0 +1,11 @@
+---
+title: "Publications"
+bibliography: publications.bib
+csl: ama.csl
+nocite: '@*'
+---
+
+Our [Google Scholar profile](https://scholar.google.com/) (PLACEHOLDER: replace this link with the lab's profile) has the most complete and up-to-date listing of our work. Below is our curated list, newest first.
+
+::: {#refs}
+:::

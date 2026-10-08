@@ -1,0 +1,7 @@
+---
+title: "Svenningsen Imaging Lab"
+---
+
+[PLACEHOLDER: Two or three sentences introducing the lab: who you are, what you study, and where you are based.]
+
+[PLACEHOLDER: One sentence inviting prospective students, collaborators, or participants to get in touch, linking to the [Contact](contact.qmd) page.]

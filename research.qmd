@@ -1,0 +1,17 @@
+---
+title: "Research"
+---
+
+[PLACEHOLDER: One short paragraph giving an overview of the lab's research program.]
+
+## [PLACEHOLDER: Research area 1]
+
+[PLACEHOLDER: A few sentences describing this area.]
+
+## [PLACEHOLDER: Research area 2]
+
+[PLACEHOLDER: A few sentences describing this area.]
+
+## [PLACEHOLDER: Research area 3]
+
+[PLACEHOLDER: A few sentences describing this area.]

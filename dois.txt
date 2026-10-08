@@ -1,0 +1,2 @@
+# One DOI per line. Bare DOIs (10.xxxx/...) or https://doi.org/... links both work.
+# Lines starting with # are ignored. Then run:  python scripts/dois_to_bib.py

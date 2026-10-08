@@ -1,0 +1,38 @@
+/* ---------- Team: square, evenly cropped headshots at every screen size ---------- */
+/* Quarto sets an inline height of 150px on card images; override it. */
+.quarto-grid-item .card-img-top {
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.quarto-grid-item .card-img-top img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center top;   /* keeps faces in frame when a photo is cropped */
+}
+
+/* Members with no profile link: the card should not look clickable. */
+a.quarto-grid-link[href=""] {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Past members: plain name/role table, without the sort and filter controls. */
+#listing-alumni .listing-actions-group {
+  display: none;
+}
+
+/* ---------- Publications: keep long DOI links from overflowing on phones ---------- */
+#refs,
+.csl-entry,
+.csl-entry a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ---------- Gallery: consistent image sizing ---------- */
+.quarto-layout-panel img {
+  width: 100%;
+  height: auto;
+}

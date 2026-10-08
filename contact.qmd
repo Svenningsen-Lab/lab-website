@@ -1,0 +1,14 @@
+---
+title: "Contact"
+---
+
+**Principal Investigator:** [PLACEHOLDER: name]
+
+**Email:** [PLACEHOLDER: email address](mailto:name@example.com)
+
+**Address:**  
+[PLACEHOLDER: Institute / hospital name]  
+[PLACEHOLDER: Street address]  
+[PLACEHOLDER: City, Province, Postal code]
+
+[PLACEHOLDER: Optional: directions, a link to a map, or a note for prospective students.]

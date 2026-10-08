@@ -1,0 +1,29 @@
+---
+title: "Team"
+listing:
+  - id: members
+    contents: members.yml
+    type: grid
+    sort: false
+    grid-columns: 3
+    max-description-length: 600
+    fields: [image, title, subtitle, description]
+  - id: alumni
+    contents: alumni.yml
+    type: table
+    sort: false
+    fields: [title, subtitle]
+    field-display-names:
+      title: "Name"
+      subtitle: "Role"
+---
+
+## Current members
+
+::: {#members}
+:::
+
+## Past members
+
+::: {#alumni}
+:::
