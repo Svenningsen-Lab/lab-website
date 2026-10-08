@@ -45,6 +45,30 @@ link somewhere (for example a Google Scholar profile). Delete the line for no li
 The script keeps what is already in `publications.bib`, skips DOIs it already has, and sorts the
 file newest first. It needs Python 3 and an internet connection, and no extra packages.
 You can also paste BibTeX entries from Zotero or PubMed straight into `publications.bib`.
+New papers by the PI are also found automatically each month (see below).
+
+## Automatic publication updates
+
+A monthly job searches PubMed for the PI's papers and proposes any that are missing.
+
+- On the 1st of each month (or whenever you click **Actions > Find new publications > Run workflow**),
+  GitHub runs the search in `pubmed_query.txt`, looks up the new DOIs on Crossref, and opens a
+  **pull request** that adds them to `publications.bib`.
+- Open the pull request, check the added entries, delete any that are wrong, and click **Merge**.
+  The site then rebuilds and publishes by itself.
+- To stop a paper being proposed again, add its DOI to `dois_ignore.txt`.
+- If papers by a different author with the same name show up, narrow the search in
+  `pubmed_query.txt` (examples are in that file).
+- PubMed lists some papers without a DOI. The pull request does not include these; add them by hand.
+
+One-time setup: in the repository, go to **Settings > Actions > General > Workflow permissions**,
+choose **Read and write permissions**, and tick **Allow GitHub Actions to create and approve pull
+requests**. If that box is greyed out, enable it first at the organization level
+(organization **Settings > Actions > General**).
+
+GitHub pauses scheduled workflows after about 60 days with no activity in a public repository.
+Merging the monthly pull request counts as activity, but if the job ever stops, re-enable it from the
+**Actions** tab.
 
 ## Publishing
 

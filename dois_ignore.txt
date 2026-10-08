@@ -1,0 +1,3 @@
+# DOIs that the monthly search should never propose again
+# (papers by a different author with the same name, papers you don't want listed, etc.).
+# One DOI per line. Lines starting with # are ignored.

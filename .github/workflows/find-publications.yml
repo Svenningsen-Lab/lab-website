@@ -1,0 +1,47 @@
+name: Find new publications
+
+on:
+  schedule:
+    - cron: "17 9 1 * *"   # 09:17 UTC on the 1st of every month
+  workflow_dispatch:        # also adds a "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Search PubMed for new DOIs
+        run: python scripts/find_new_dois.py | tee search_log.txt
+
+      - name: Add them to publications.bib
+        run: |
+          echo "Papers found by the monthly PubMed search. Review them, delete any entries that are wrong, then merge to publish." > pr_body.md
+          echo "" >> pr_body.md
+          echo "To stop a paper from being proposed again, add its DOI to dois_ignore.txt." >> pr_body.md
+          echo "" >> pr_body.md
+          echo '```' >> pr_body.md
+          if [ -s new_dois.txt ]; then
+            python scripts/dois_to_bib.py --dois new_dois.txt | tee -a pr_body.md || true
+          else
+            echo "No new papers found." >> pr_body.md
+          fi
+          echo '```' >> pr_body.md
+
+      - name: Open a pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          add-paths: publications.bib
+          branch: auto/new-publications
+          delete-branch: true
+          commit-message: "Add new publications found on PubMed"
+          title: "New publications to review"
+          body-path: pr_body.md
