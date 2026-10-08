@@ -8,4 +8,4 @@
 #
 # To test a search, paste it into https://pubmed.ncbi.nlm.nih.gov/ and check the results.
 
-Svenningsen S[Author]
+Svenningsen S[Author] AND (McMaster[Affiliation] OR Hamilton[Affiliation])
