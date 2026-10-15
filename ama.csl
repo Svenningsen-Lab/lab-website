@@ -127,7 +127,7 @@
         <text font-style="italic" text-case="title" variable="title"/>
       </if>
       <else>
-        <text variable="title"/>
+        <text font-weight="bold" variable="title"/>
       </else>
     </choose>
   </macro>

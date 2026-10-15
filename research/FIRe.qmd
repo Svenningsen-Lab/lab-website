@@ -1,0 +1,33 @@
+---
+title: "FIRH Imaging Registry (FIRe)"
+description: "The FIRH Imaging Registry (FIRe) collects imaging and clinical data from people with respiratory disease at the Firestone Institute for Respiratory Health to support biomarker discovery."
+---
+
+The FIRH Imaging Registry (FIRe) is a central, growing repository that systematically collects and integrates imaging and clinical data from patients with respiratory disease who participate in research or are managed clinically at FIRH. It is a powerful, inclusive platform to discover and evaluate novel imaging biomarkers and advance our understanding of disease. The registry is designed to enable secondary use of imaging data acquired for research and clinical care, accelerate quantitative biomarker development, and track clinical outcomes over time.
+
+FIRe will help us answer questions related to:
+
+- **Treatment response**, such as *"How do imaging biomarkers change after starting a biologic, and do they predict clinical improvement?"*
+- **Radiomics and machine learning**, such as *"Can combined CT/MRI radiomics predict progression, exacerbations, or treatment response?"*
+- **Biomarker discovery and development**, such as *"Can novel quantitative imaging metrics be developed and validated as biomarkers of early disease or treatment response?"*
+
+If you think FIRe can help advance your research, please [reach out to us](../contact.qmd) to have your research question reviewed by the FIRe Data Access Committee.
+
+## Variable domains collected
+
+::: {.list-cols}
+- Demographics
+- Anthropometrics
+- Medical history
+- Vital signs
+- Pulmonary function tests
+- Methacholine challenge
+- Oscillometry
+- Patient questionnaires
+- CBC
+- Sputum
+- FeNO
+- CT
+- MRI
+- Longitudinal follow-up
+:::

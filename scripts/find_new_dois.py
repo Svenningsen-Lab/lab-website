@@ -7,10 +7,15 @@ Usage (run from the project root):
 
 What it does:
   * Reads the search from pubmed_query.txt (lines starting with # are ignored).
-  * Asks PubMed (NCBI E-utilities, free, no key needed) for everything that matches.
-  * Drops anything already in publications.bib or listed in dois_ignore.txt.
+  * Asks PubMed (NCBI E-utilities, free, no key needed) for matching papers that were
+    ADDED TO PUBMED since the date in last_checked.txt. Older papers are never
+    proposed, so entries you delete from publications.bib stay deleted.
+  * Drops anything already in publications.bib.
   * Drops errata, comments, and retraction notices.
   * Writes the remaining DOIs to new_dois.txt, ready for scripts/dois_to_bib.py.
+  * If any were found, moves the date in last_checked.txt up to today. (If the file is
+    missing, it is created with today's date and nothing is proposed.)
+    Use --all to search the whole PubMed history instead, once, on purpose.
 
 It never edits publications.bib itself. Papers PubMed lists without a DOI are
 reported at the end so you can add them by hand.
@@ -19,6 +24,7 @@ Only the Python standard library is needed.
 """
 
 import argparse
+import datetime
 import json
 import os
 import re
@@ -85,8 +91,21 @@ def get_json(endpoint, params, email=None):
     raise RuntimeError(f"PubMed request failed: {last}")
 
 
-def search_pmids(query, email=None, retmax=1000):
-    data = get_json("esearch.fcgi", {"db": "pubmed", "term": query, "retmax": retmax, "sort": "pub_date"}, email)
+def read_since(path):
+    """Return the date (YYYY-MM-DD) saved in last_checked.txt, or None."""
+    for ln in read_lines(path):
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", ln):
+            return ln
+    return None
+
+
+def search_pmids(query, email=None, retmax=1000, since=None):
+    params = {"db": "pubmed", "term": query, "retmax": retmax, "sort": "pub_date"}
+    if since:
+        # edat = the date the record was added to PubMed
+        params.update({"datetype": "edat", "mindate": since.replace("-", "/"),
+                       "maxdate": "3000/12/31"})
+    data = get_json("esearch.fcgi", params, email)
     res = data.get("esearchresult", {})
     ids = res.get("idlist", [])
     count = int(res.get("count", len(ids)))
@@ -117,8 +136,10 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--query-file", default="pubmed_query.txt")
     p.add_argument("--bib", default="publications.bib")
-    p.add_argument("--ignore", default="dois_ignore.txt")
     p.add_argument("--out", default="new_dois.txt")
+    p.add_argument("--since-file", default="last_checked.txt")
+    p.add_argument("--all", action="store_true",
+                   help="ignore last_checked.txt and search all of PubMed history")
     p.add_argument("--email", default=os.environ.get("CROSSREF_EMAIL"),
                    help="contact email sent to NCBI (or set CROSSREF_EMAIL); optional")
     args = p.parse_args(argv)
@@ -128,13 +149,24 @@ def main(argv=None):
         sys.exit(f"No search found in {args.query_file}. Run this from the project root.")
     print(f"PubMed search: {query}")
 
-    pmids, count = search_pmids(query, args.email)
+    today = datetime.date.today().isoformat()
+    since = None if args.all else read_since(args.since_file)
+    if not args.all and not since:
+        with open(args.since_file, "w", encoding="utf-8", newline="\n") as f:
+            f.write("# Only papers added to PubMed on or after this date are proposed.\n"
+                    "# Updated automatically.\n" + today + "\n")
+        open(args.out, "w").close()
+        print(f"No {args.since_file} found: created it with today's date ({today}). "
+              "Nothing proposed this time; run with --all to search the full history.")
+        return 0
+    print(f"Looking for papers added to PubMed since {since}." if since else "Searching all of PubMed history.")
+
+    pmids, count = search_pmids(query, args.email, since=since)
     print(f"PubMed returned {count} matching records.")
     if count > len(pmids):
         print(f"WARNING: only the first {len(pmids)} were retrieved. Narrow the search in {args.query_file}.")
 
     have = bib_dois(args.bib)
-    ignore = {clean_doi(d) for d in read_lines(args.ignore)}
     info = summaries(pmids, args.email)
 
     new, no_doi, skipped = [], [], 0
@@ -149,15 +181,20 @@ def main(argv=None):
         if not doi:
             no_doi.append((pmid, s.get("title", "").strip()))
             continue
-        if doi in have or doi in ignore or doi in new:
+        if doi in have or doi in new:
             continue
         new.append(doi)
 
     with open(args.out, "w", encoding="utf-8") as f:
         f.write("\n".join(new) + ("\n" if new else ""))
 
+    if new and not args.all:
+        with open(args.since_file, "w", encoding="utf-8", newline="\n") as f:
+            f.write("# Only papers added to PubMed on or after this date are proposed.\n"
+                    "# Updated automatically.\n" + today + "\n")
+
     print(f"{len(new)} new DOIs written to {args.out} "
-          f"({len(have)} already in {args.bib}, {len(ignore)} on the ignore list, "
+          f"({len(have)} already in {args.bib}, "
           f"{skipped} errata/comments skipped).")
     if no_doi:
         print("\nPubMed lists these without a DOI, so add them by hand if you want them:")

@@ -4,7 +4,7 @@
 # After the first run, look at the pull request it opens: if papers by a different
 # "Svenningsen S" appear, narrow the search by adding an affiliation, for example:
 #   Svenningsen S[Author] AND (McMaster[Affiliation] OR Hamilton[Affiliation])
-# or reject individual papers by listing their DOIs in dois_ignore.txt.
+# or delete the wrong entries from the pull request before merging.
 #
 # To test a search, paste it into https://pubmed.ncbi.nlm.nih.gov/ and check the results.
 

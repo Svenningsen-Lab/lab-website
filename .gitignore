@@ -1,9 +1,18 @@
+# Quarto build output and cache
 /.quarto/
 /_site/
+**/*.quarto_ipynb
+
+# Python
 __pycache__/
 *.pyc
 
-**/*.quarto_ipynb
+# Publication-update workflow scratch files
 new_dois.txt
 search_log.txt
 pr_body.md
+
+# Editor / OS clutter
+.Rhistory
+.DS_Store
+Thumbs.db

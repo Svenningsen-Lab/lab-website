@@ -1,14 +1,32 @@
 ---
 title: "Contact"
+description: "Contact the Svenningsen Imaging Lab at St. Joseph's Healthcare Hamilton, 50 Charlton Avenue East, Hamilton, Ontario, for research questions, collaborations or joining the lab."
 ---
 
-**Principal Investigator:** [PLACEHOLDER: name]
+For questions about our research, collaborations, or joining the lab, please contact us.
 
-**Email:** [PLACEHOLDER: email address](mailto:name@example.com)
+**Dr. Sarah Svenningsen**\
+Email: svennins@mcmaster.ca
+<!-- Phone: add a line here if a number should be listed. -->
 
-**Address:**  
-[PLACEHOLDER: Institute / hospital name]  
-[PLACEHOLDER: Street address]  
-[PLACEHOLDER: City, Province, Postal code]
+St. Joseph's Healthcare Hamilton\
+50 Charlton Avenue East\
+Hamilton, Ontario\
+L8N 4A6
 
-[PLACEHOLDER: Optional: directions, a link to a map, or a note for prospective students.]
+```{=html}
+<div class="map-embed">
+  <iframe
+    title="Map showing 50 Charlton Avenue East, Hamilton, Ontario"
+    src="https://www.google.com/maps?q=50+Charlton+Ave+E,+Hamilton,+ON+L8N+4A6&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen></iframe>
+</div>
+```
+
+::: {.logo-row}
+![](images/sjhhlogo.jpg){fig-alt="St. Joseph's Healthcare Hamilton"}
+![](images/stjoeri.png){fig-alt="St. Joseph's Research Institute"}
+![](images/mcmaster.svg){fig-alt="McMaster University"}
+:::

@@ -1,11 +1,12 @@
 ---
 title: "Publications"
+description: "Peer-reviewed publications from Dr. Sarah Svenningsen and the Svenningsen Imaging Lab on pulmonary MRI and CT."
 bibliography: publications.bib
 csl: ama.csl
 nocite: '@*'
 ---
 
-Our [Google Scholar profile](https://scholar.google.com/) (PLACEHOLDER: replace this link with the lab's profile) has the most complete and up-to-date listing of our work. Below is our curated list, newest first.
+Below is a list of publications that have come out of our lab or we have contributed to. Please reach out to the corresponding authors if you have any questions.
 
 ::: {#refs}
 :::

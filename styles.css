@@ -1,6 +1,184 @@
-/* ---------- Team: square, evenly cropped headshots at every screen size ---------- */
-/* Quarto sets an inline height of 150px on card images; override it. */
+/* =====================================================================
+   Svenningsen Imaging Lab: site styles
+   Sections:  1 Fonts   2 Page layout   3 Navbar   4 Figures & columns
+              5 Lists   6 Team   7 Publications   8 Contact
+   ===================================================================== */
+
+
+/* ---------- 1. Fonts ---------- */
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("fonts/stix-roman.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "STIX Two Text";
+  src: url("fonts/stix-italic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/InterVariable-Italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+body {
+  font-family: "Inter", system-ui, sans-serif;
+}
+h1, h2, h3, .navbar-brand {
+  font-family: "STIX Two Text", Georgia, serif;
+}
+
+
+/* ---------- 2. Page layout: left-aligned content column ---------- */
+/* With page-layout: custom there is no <main>; the content wrapper is #quarto-content. */
+#quarto-content {
+  max-width: none;
+  margin: 0 auto 0 0;
+  padding: 1.5rem 2rem;
+}
+
+
+/* Page descriptions are for search engines and link previews; don't repeat them under the title. */
+.quarto-title .description,
+#title-block-header .description {
+  display: none;
+}
+
+
+/* ---------- 3. Navbar: dropdown opens on hover, no arrow ---------- */
+/* Clicking "Research" itself goes to the Overview (includes/nav-research.html). */
+.navbar .dropdown-toggle::after {
+  display: none;
+}
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;   /* no gap, so the menu doesn't close on the way down */
+  }
+}
+
+
+/* ---------- 4. Figures and text/figure columns ---------- */
+figcaption {
+  text-align: center;
+}
+
+/* Default: text on the left (wide), figure on the right (narrow).
+   Usage: :::: {.columns} */
+div.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+}
+div.columns > .column {
+  width: auto !important;
+}
+div.columns > .column:first-child {
+  flex: 1 1 24rem;
+}
+div.columns > .column:last-child {
+  flex: 0 1 22rem;
+  max-width: 100%;
+}
+
+
+/* ---------- 5. Lists ---------- */
+/* Multi-column bullet list. Usage: ::: {.list-cols}  then a normal bullet list  ::: */
+.list-cols > ul {
+  column-width: 14rem;
+  column-gap: 2.5rem;
+}
+.list-cols li {
+  break-inside: avoid;
+}
+
+
+/* ---------- 6. Team ---------- */
+/* Shared: cards and the PI panel crop photos square, keeping faces in frame. */
+
+/* 6a. PI: wide panel */
+#listing-pi .quarto-post {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+}
+#listing-pi .thumbnail {
+  flex: 0 0 380px;
+}
+#listing-pi .thumbnail img {
+  display: block;
+  width: 380px;
+  height: 380px !important;
+  object-fit: cover;
+  object-position: center top;
+}
+#listing-pi .body {
+  flex: 1 1 auto;
+}
+#listing-pi .listing-title {
+  margin-top: 0;
+  font-size: 1.7rem;
+}
+#listing-pi .listing-description {
+  font-size: 1.05rem;
+}
+#listing-pi .metadata {
+  display: none;
+}
+@media (max-width: 700px) {
+  #listing-pi .quarto-post {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  #listing-pi .thumbnail {
+    flex: none;
+    order: -1;
+    width: 100%;
+    max-width: 380px;
+  }
+  #listing-pi .thumbnail img {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* 6b. Current members: fixed 300px cards, so the PI photo is always the larger one */
+#listing-members .list.grid {
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: start;
+}
+#listing-members .list.grid > [class*="g-col"] {
+  grid-column: auto;
+}
+#listing-members .listing-title {
+  font-size: 1.45rem;
+  margin-bottom: 0.15rem;
+}
+#listing-members .listing-subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+/* Quarto sets an inline height of 150px on card images; override it with a square crop. */
 .quarto-grid-item .card-img-top {
+  flex: 0 0 auto;
   margin: 0;
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -9,30 +187,70 @@
   width: 100% !important;
   height: 100% !important;
   object-fit: cover;
-  object-position: center top;   /* keeps faces in frame when a photo is cropped */
+  object-position: center top;
+}
+.quarto-grid-item .card-body.post-contents {
+  flex: 1 1 auto;
+  height: auto;
 }
 
-/* Members with no profile link: the card should not look clickable. */
-a.quarto-grid-link[href=""] {
+/* Entries with no link should not look clickable (includes/site-scripts.html also
+   handles this, since Quarto can rewrite an empty href to the page's own address). */
+a.quarto-grid-link[href=""],
+#listing-pi a[href=""] {
   pointer-events: none;
   cursor: default;
 }
 
-/* Past members: plain name/role table, without the sort and filter controls. */
+/* 6c. Past members: plain name/role table, without sort and filter controls */
 #listing-alumni .listing-actions-group {
   display: none;
 }
 
-/* ---------- Publications: keep long DOI links from overflowing on phones ---------- */
+
+/* ---------- 7. Publications and citations ---------- */
 #refs,
 .csl-entry,
 .csl-entry a {
-  overflow-wrap: anywhere;
+  overflow-wrap: anywhere;   /* keep long DOI links from overflowing on phones */
   word-break: break-word;
 }
+.csl-entry {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
 
-/* ---------- Gallery: consistent image sizing ---------- */
-.quarto-layout-panel img {
+
+/* ---------- 8. Contact: map and partner logos ---------- */
+.map-embed {
+  position: relative;
+  width: 500px
+  aspect-ratio: 4 / 3;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+.map-embed iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  border: 0;
+}
+
+/* Logos side by side with spacing. Quarto puts consecutive images in one <p>,
+   so the flex rule applies to both the row and that paragraph. */
+.logo-row,
+.logo-row > p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 2rem;
+}
+.logo-row { margin: 2rem 0 1rem; }
+.logo-row > p { margin: 0; }
+.logo-row img {
+  height: 60px;
+  width: auto;
+  max-width: 100%;
 }

@@ -1,0 +1,19 @@
+---
+title: "Quantitative CT"
+description: "How the lab uses quantitative CT to measure airways, mucus plugs, air trapping and pulmonary blood vessels in asthma and COPD."
+bibliography: ../publications.bib
+csl: ../ama.csl
+nocite: |
+  @mappanasingam2026, @sandhu2026, @ragunayakam2025
+---
+
+Quantitative CT uses image analysis software to extract measurements from a standard chest CT. We segment the airway tree to measure lumen area and wall thickness, and we quantify air trapping from expiratory and inspiratory scans using low-attenuation area and parametric response mapping. We also score mucus plugs by number and location, and we measure the pulmonary vasculature, including blood vessel volume and the size distribution of the vessels.
+
+CT gives high-resolution structural detail, while MRI gives functional information, so we analyze them together within the same participant. For example, we ask how airways blocked by mucus on CT relate to ventilation defects on ^129^Xe MRI, and how both change with treatment. This helps us link structural abnormalities in the airways and lung vessels to regional lung function in asthma and COPD.
+
+![From a single CT scan we are able to evaluate (from left to right), lung parenchyma, mucus plugging, airway morphology, fissure integrity, and pulmonary vasculature](../images/CToverview.gif){width=50% fig-align="center" fig-alt="Animated CT lung images showing parenchyma, mucus plugs, airways, fissures and pulmonary vessels derived from a single scan."}
+
+## Selected publications
+
+::: {#refs}
+:::

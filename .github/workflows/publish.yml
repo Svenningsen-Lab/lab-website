@@ -25,6 +25,10 @@ jobs:
         with:
           version: 1.10.18   # the version this site was tested with; bump when you choose to
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Render site
         run: quarto render
 

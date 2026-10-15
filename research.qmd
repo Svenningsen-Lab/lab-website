@@ -1,17 +1,23 @@
 ---
-title: "Research test test" 
+title: "Research Overview"
+description: "Overview of the Svenningsen lab's research: hyperpolarized xenon-129 MRI, quantitative CT, free-breathing proton MRI and the FIRH Imaging Registry."
 ---
 
-[PLACEHOLDER: One short paragraph giving an overview of the lab's research program.]
+:::: {.columns}
 
-## [PLACEHOLDER: Research area 1]
+::: {.column}
+The Svenningsen Imaging Lab develops and applies pulmonary MRI and CT to measure lung structure and function in people with asthma, COPD and other chronic lung diseases. Our work focuses on imaging biomarkers that detect regional disease, such as ventilation defects, gas exchange impairment, air trapping, and airway mucus plugging. We use these measures to characterize disease phenotypes, track the effects of treatment, and predict clinical outcomes.
 
-[PLACEHOLDER: A few sentences describing this area.]
+## Our imaging approaches
 
-## [PLACEHOLDER: Research area 2]
+- [Hyperpolarized ^129^Xe MRI](research/xenon-mri.qmd)
+- [Quantitative CT](research/CT.qmd)
+- [Free-breathing ^1^H MRI](research/proton-mri.qmd)
+- [FIRH Imaging Registry](research/FIRe.qmd)
+:::
 
-[PLACEHOLDER: A few sentences describing this area.]
+::: {.column}
+![A ^1^H MRI image of the thoracic cavity (grey) with ^129^Xe MRI ventilation (cyan), CT airway (pink), and CT vasculature (magenta) images overlayed](images/combinedoverlay.jpg){width=90% fig-align="center" fig-alt="Two researchers preparing a participant, with a chest coil in place, to enter an MRI scanner."}
+:::
 
-## [PLACEHOLDER: Research area 3]
-
-[PLACEHOLDER: A few sentences describing this area.]
+::::

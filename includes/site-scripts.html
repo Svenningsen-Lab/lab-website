@@ -1,0 +1,33 @@
+<script>
+// Site-wide scripts (loaded on every page via _quarto.yml).
+
+// On desktop, clicking "Research" goes to the Overview page (the dropdown still opens on hover).
+// On narrow screens the click opens the dropdown as usual; Overview is the first item.
+document.addEventListener("DOMContentLoaded", function () {
+  var toggle = document.getElementById("nav-menu-research");
+  if (!toggle) return;
+  var overview = toggle.parentElement.querySelector(".dropdown-menu a.dropdown-item");
+  if (!overview) return;
+  toggle.addEventListener("click", function (e) {
+    if (window.matchMedia("(min-width: 992px)").matches) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      window.location.href = overview.href;
+    }
+  }, true);
+});
+
+// Team cards without a link (no `path:` in the .yml) are rendered by Quarto as links back to
+// the current page. Make those inert so they don't look or act clickable.
+document.addEventListener("DOMContentLoaded", function () {
+  var here = location.href.split("#")[0];
+  document.querySelectorAll("#listing-pi a, #listing-members a").forEach(function (a) {
+    var raw = a.getAttribute("href");
+    if (!raw || a.href.split("#")[0] === here) {
+      a.style.pointerEvents = "none";
+      a.style.cursor = "default";
+      a.removeAttribute("href");
+    }
+  });
+});
+</script>

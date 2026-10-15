@@ -1,20 +1,40 @@
-# Current lab members. One entry per person; order here is the order shown.
-# image:       square headshot in images/team/ (any size; it is cropped to a square)
-# title:       full name
-# subtitle:    role
-# description: short bio (a few sentences)
-# path:        optional. If present, the card links there (e.g. a Google Scholar profile).
-#              Delete the line if the person has no profile to link to.
-- title: "PLACEHOLDER Name One"
-  subtitle: "Principal Investigator"
-  image: images/team/placeholder-1.png
-  description: "PLACEHOLDER bio. Two or three sentences about this person's background, role in the lab, and research interests."
-  path: https://scholar.google.com/
-- title: "PLACEHOLDER Name Two"
+- title: "Dr. Yonni Friedlander"
   subtitle: "Research Coordinator"
-  image: images/team/placeholder-2.png
-  description: "PLACEHOLDER bio. Two or three sentences about this person's background, role in the lab, and research interests."
-- title: "PLACEHOLDER Name Three"
-  subtitle: "Graduate Student"
-  image: images/team/placeholder-3.png
-  description: "PLACEHOLDER bio. Two or three sentences about this person's background, role in the lab, and research interests."
+  image: images/team/yfriedlander.png
+  image-alt: "Portrait of Dr. Yonni Friedlander."
+  description: "Yonni is the research coordinator for the Svenningsen lab but has diverse roles in the lab. His specialty is image processing but he does a bit of everything like manage regulatory submissions or make this website."
+- title: "Dr. Alex Matheson"
+  subtitle: "Postdoctoral Fellow"
+  image: images/team/amatheson.png
+  image-alt: "Portrait of Dr. Alex Matheson."
+  description: "Alex is a Banting Postdoctoral Fellow. Alex’s primary research interest is pediatric imaging, specifically using structural and functional imaging to understand pediatric asthma."
+- title: "Nandhitha Ragunayakam"
+  subtitle: "PhD Candidate"
+  image: images/team/nragunayakam.jpeg
+  image-alt: "Portrait of Nandhitha Ragunayakam."
+  description: "Nandhitha is a PhD candidate. Her research is using quantitative CT and ^129^Xe MRI to investigate the biological, clinical and therapeutic relevance of airway morphology in patients with asthma."
+- title: "Anusha Mappanasingam"
+  subtitle: "PhD Candidate"
+  image: images/team/amappanasingam.png
+  image-alt: "Portrait of Anusha Mappanasingam."
+  description: "Anusha's PhD research uses quantitative CT to characterize the pulmonary vasculature and its relationship to airway morphology in patients with asthma."
+- title: "Ekam Sandhu"
+  subtitle: "PhD Candidate"
+  image: images/team/esandhu.jpeg
+  image-alt: "Portrait of Ekam Sandhu."
+  description: "Ekam is a PhD candidate. His research focuses on investigating the impact of biologics and airway clearance therapy on mucus plugging in patients with moderate-to-severe asthma."
+- title: "Om Thakar"
+  subtitle: "Undergraduate Student"
+  image: images/team/othakar.jpeg
+  image-alt: "Portrait of Om Thakar."
+  description: "Om's undergraduate research involved analyzing the impact of different ^129^Xe analysis techniques on the predictive value of ventilation MRI in patients undergoing lung resection surgery."
+- title: "Oscar Ding"
+  subtitle: "Undergraduate Student"
+  image: images/team/placeholder.png
+  image-alt: "Placeholder silhouette; photo of Oscar Ding to come."
+  description: "PLACEHOLDER BIO."
+- title: "Ilias Farooq"
+  subtitle: "Undergraduate Student"
+  image: images/team/placeholder.png
+  image-alt: "Placeholder silhouette; photo of Ilias Farooq to come."
+  description: "PLACEHOLDER BIO."

@@ -3,30 +3,43 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
+  resources:
+    - fonts
 
 website:
   title: "Svenningsen Imaging Lab"
+  favicon: images/favicon.png
+  description: "The Svenningsen Imaging Lab develops pulmonary MRI and CT to measure lung structure and function in asthma, COPD and other chronic lung diseases, at the Firestone Institute for Respiratory Health, St. Joseph's Healthcare Hamilton."
+  open-graph: true
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: research.qmd
-        text: Research
-      - href: team.qmd
-        text: Team
-      - href: publications.qmd
-        text: Publications
-      - href: gallery.qmd
-        text: Gallery
-      - href: contact.qmd
-        text: Contact
-  page-footer:
-    center: "© Svenningsen Imaging Lab"
+      - text: Home
+        href: index.qmd
+      - text: Research
+        menu:
+          - text: "Overview"
+            href: research.qmd
+          - text: "^129^Xe MRI"
+            href: research/xenon-mri.qmd
+          - text: "CT"
+            href: research/CT.qmd
+          - text: "^1^H MRI"
+            href: research/proton-mri.qmd
+          - text: "FIRH Imaging Registry"
+            href: research/FIRe.qmd
+      - text: Team
+        href: team.qmd
+      - text: Publications
+        href: publications.qmd
+      - text: Contact
+        href: contact.qmd
 
 format:
   html:
     theme: flatly
     css: styles.css
     toc: false
-    lightbox: true
+    lightbox: false
     lang: en-CA
+    page-layout: custom
+    include-after-body: includes/site-scripts.html

@@ -1,6 +1,13 @@
 ---
 title: "Team"
+description: "Meet the Svenningsen Imaging Lab: our principal investigator, current trainees and staff, and past members."
 listing:
+  - id: pi
+    contents: pi.yml
+    type: default
+    image-align: left
+    max-description-length: 900
+    fields: [image, title, subtitle, description]
   - id: members
     contents: members.yml
     type: grid
@@ -17,6 +24,9 @@ listing:
       title: "Name"
       subtitle: "Role"
 ---
+
+::: {#pi}
+:::
 
 ## Current members
 
